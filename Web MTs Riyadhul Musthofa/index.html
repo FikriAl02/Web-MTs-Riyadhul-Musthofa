@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MTs Riyadhul Musthofa — Generasi Unggul, Berakhlak Mulia</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'], serif: ['"Playfair Display"', 'Georgia', 'serif'] },
+          colors: { bg: 'var(--bg)', surface: 'var(--surface)', ink: 'var(--ink)', muted: 'var(--muted)', brand: 'var(--brand)', btn: 'var(--btn)', tint: 'var(--tint)', gold: 'var(--gold)', line: 'var(--line)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #f7fbf9;
+      --surface: #ffffff;
+      --ink: #0f2a24;
+      --muted: #4d6a62;
+      --brand: #0f766e;
+      --btn: #0f766e;
+      --tint: #e6f4ef;
+      --gold: #2B2D42;
+      --line: #d7e7e1;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0a1714;
+        --surface: #11241f;
+        --ink: #e8f3ef;
+        --muted: #9db8af;
+        --brand: #2dd4bf;
+        --tint: #0f2a24;
+        --gold: #f0c040;
+        --line: #1e3a33
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0a1714;
+      --surface: #11241f;
+      --ink: #e8f3ef;
+      --muted: #9db8af;
+      --brand: #2dd4bf;
+      --tint: #0f2a24;
+      --gold: #f0c040;
+      --line: #1e3a33
+    }
+
+    html {
+      scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem)
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Poppins, system-ui, sans-serif
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      height: env(safe-area-inset-top, 0px);
+      z-index: 60;
+      background: var(--surface)
+    }
+
+    .pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .12) 1px, transparent 0);
+      background-size: 22px 22px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .7s ease
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    .card {
+      transition: transform .3s, box-shadow .3s
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px -18px rgba(15, 118, 110, .45)
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- NAVBAR -->
+  <header class="sticky z-50 bg-surface border-b border-line" style="top:env(safe-area-inset-top,0px)">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#beranda" class="flex items-center gap-3">
+        <a href="#beranda" class="flex items-center gap-3">
+          <img src="img/LOGO MTS RM (1).png" alt="Logo MTs Riyadhul Musthofa" class="h-10 w-10 object-contain" />
+          <span class="font-semibold leading-tight text-sm sm:text-base">MTs Riyadhul<br class="sm:hidden">
+            Musthofa</span>
+        </a>
+      </a>
+      <ul class="hidden lg:flex items-center gap-7 text-sm font-medium text-muted">
+        <li><a class="hover:text-brand transition" href="#">Beranda</a></li>
+        <li><a class="hover:text-brand transition" href="#profil">Profil</a></li>
+        <li><a class="hover:text-brand transition" href="#program-unggulan">Program Unggulan</a></li>
+        <li><a class="hover:text-brand transition" href="#berita">Berita/Kegiatan</a></li>
+        <li><a class="hover:text-brand transition" href="#galeri">Galeri</a></li>
+        <li><a class="hover:text-brand transition" href="#kontak">Kontak</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#ppdb"
+          class="bg-gold text-[#2a2000] font-semibold text-sm px-5 py-2.5 rounded-full shadow hover:scale-105 transition">PPDB
+          Online</a>
+        <button id="menuBtn" aria-label="Menu" class="lg:hidden p-2 rounded-lg text-ink">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-line bg-surface">
+      <ul class="px-4 py-3 flex flex-col text-sm font-medium">
+        <li><a class="block py-2.5 text-muted" href="#beranda">Beranda</a></li>
+        <li><a class="block py-2.5 text-muted" href="#profil">Profil</a></li>
+        <li><a class="block py-2.5 text-muted" href="#program-unggulan">Program Unggulan</a></li>
+        <li><a class="block py-2.5 text-muted" href="#berita">Berita/Kegiatan</a></li>
+        <li><a class="block py-2.5 text-muted" href="#galeri">Galeri</a></li>
+        <li><a class="block py-2.5 text-muted" href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="beranda" class="relative overflow-hidden text-white bg-cover bg-center"
+    style="background-image: url('img/barudak.jpeg');">
+    <!-- Overlay hijau (di luar grid) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#064e43]/40 via-[#0f766e]/30 to-[#0b5f58]/20"></div>
+    <!-- Grid: hanya 2 anak langsung -->
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Kolom 1: semua teks -->
+      <div class="reveal">
+        <span
+          class="inline-block text-xs tracking-widest uppercase bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">Tentang
+          Madrasah</span>
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Membangun Generasi Unggul, <span
+            class="text-[#white]">Berakhlak</span>, dan Berprestasi.</h1>
+        <p class="mt-5 text-white/80 max-w-lg">MTs Riyadhul Musthofa adalah madrasah yang memadukan kurikulum nasional
+          dan nilai-nilai pesantren untuk mencetak siswa cerdas, berilmu, dan beradab.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#ppdb"
+            class="bg-[#f0c040] text-[#2a2000] font-semibold px-7 py-3 rounded-full shadow-lg hover:scale-105 transition">Daftar
+            Sekarang</a>
+          <a href="#profil"
+            class="border border-white/50 font-semibold px-7 py-3 rounded-full hover:bg-white hover:text-[#0f766e] transition">Jelajahi
+            Profil</a>
+        </div>
+      </div>
+
+    </div> <!-- tutup grid -->
+  </section>
+
+  <!-- PROGRAM UNGGULAN (DETAIL) -->
+  <section id="program-unggulan" class="py-16 md:py-24 bg-tint">
+    <div class="max-w-6xl mx-auto px-4">
+
+      <!-- Judul -->
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest">Kenali Lebih Dekat</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Program Unggulan MTs Riyadhul Musthofa</h2>
+        <div class="w-16 h-1 bg-gold rounded mt-4 mx-auto"></div>
+        <p class="text-muted mt-5">Program yang dirancang untuk membentuk siswa yang cerdas, berakhlak, dan
+          berprestasi.</p>
+      </div>
+
+      <!-- Kartu program -->
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+
+        <!-- Program 1 -->
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line flex flex-col">
+          <div class="relative">
+            <img src="img/UNGGULAN TAHFID.jpeg" alt="Program Tahfidz Al-Qur’an" class="h-52 w-full object-cover"
+              loading="lazy" />
+            <span
+              class="absolute top-4 left-4 bg-[#f0c040] text-[#2a2000] text-xs font-semibold px-3 py-1 rounded-full shadow">
+              Unggulan
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div
+              class="w-12 h-12 -mt-12 relative rounded-xl bg-btn text-white flex items-center justify-center text-2xl shadow-lg">
+              📖</div>
+            <h3 class="font-serif text-xl font-bold mt-4">Tahfidz Al-Qur’an</h3>
+            <p class="text-sm text-muted mt-2">Pembiasaan menghafal Al-Qur’an dengan metode terarah dan bimbingan
+              intensif dari ustadz M Luthfi Abdillah.</p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Target hafalan Juz 30 &amp; 29</li>
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Setoran harian &amp; murojaah rutin</li>
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Evaluasi hafalan berkala</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Program 2 -->
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line flex flex-col">
+          <div class="relative">
+            <img src="img/PRAMUKA EKSUL.jpeg" alt="Kegiatan ekstrakurikuler siswa" class="h-52 w-full object-cover"
+              loading="lazy" />
+            <span
+              class="absolute top-4 left-4 bg-[#f0c040] text-[#2a2000] text-xs font-semibold px-3 py-1 rounded-full shadow">
+              Unggulan
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+
+            <h3 class="font-serif text-xl font-bold mt-4">Ekstrakurikuler</h3>
+            <p class="text-sm text-muted mt-2">Wadah mengembangkan bakat, kreativitas, dan jiwa kepemimpinan di luar jam
+              pelajaran.</p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Pramuka</li>
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Qiro'ah</li>
+
+            </ul>
+          </div>
+        </article>
+
+        <!-- Program 3 -->
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line flex flex-col">
+          <div class="relative">
+            <img src="img/dhuha.jpeg" alt="Kegiatan keagamaan rutin" class="h-52 w-full object-cover" loading="lazy" />
+            <span
+              class="absolute top-4 left-4 bg-[#f0c040] text-[#2a2000] text-xs font-semibold px-3 py-1 rounded-full shadow">
+              Unggulan
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div
+              class="w-12 h-12 -mt-12 relative rounded-xl bg-btn text-white flex items-center justify-center text-2xl shadow-lg">
+              🤲</div>
+            <h3 class="font-serif text-xl font-bold mt-4">Kegiatan Keagamaan</h3>
+            <p class="text-sm text-muted mt-2">Pembiasaan ibadah dan akhlak dalam keseharian siswa untuk menumbuhkan
+              karakter islami.</p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Salat Dhuha &amp; Zuhur berjamaah</li>
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Pembacaan Surah Ar-Rahman, Al-Waqi'ah
+                &amp; Al-Mulk</li>
+              <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Peringatan hari besar Islam</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BERITA -->
+  <section id="berita" class="py-16 md:py-24 bg-tint">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto reveal">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest">Pengumuman</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Kabar Terbaru Madrasah</h2>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line">
+          <img src="img/ulpa.jpeg" alt="Siswa juara 2 lomba MHQ PORSENI" class="h-40 w-full object-cover"
+            loading="lazy" />
+          <div class="p-6">
+            <time class="text-xs text-gold font-semibold">29 Juli 2026</time>
+            <h3 class="font-semibold mt-2">Siswi MTs Riyadhul Musthofa Raih Juara 2 Lomba MHQ Tingkat KKM pada ajang
+              PORSENI
+            </h3>
+            <p class="text-sm text-muted mt-2">MTs Riyadhul Musthofa berhasil membawa 1 piala dari 3 perlombaan yang
+              ditampilkan</p>
+          </div>
+        </article>
+
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line">
+          <img src="img/Hari Santri.jpeg" alt="Siswa juara 2 lomba MHQ PORSENI" class="h-40 w-full object-cover"
+            loading="lazy" />
+          <div class="p-6"><time class="text-xs text-gold font-semibold">22 Oktober 2026</time>
+            <h3 class="font-semibold mt-2">Peringatan Hari Santri Nasional 2026</h3>
+            <p class="text-sm text-muted mt-2">Seluruh siswa dan guru mengikuti rangkaian Upacara Peringatan Hari Santri
+              di lapang MTs Riyadhul Musthofa</p>
+
+          </div>
+        </article>
+        <article class="card reveal bg-surface rounded-2xl overflow-hidden border border-line">
+          <img src="img/asas.jpeg" alt="Hari Santri" class="h-40 w-full object-cover" loading="lazy" />
+          <div class="p-6"><time class="text-xs text-gold font-semibold">09 November 2026</time>
+            <h3 class="font-semibold mt-2">Persiapan ASAS (Assesmen Sumatif Akhir Semester) Ganjil 2026</h3>
+
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section id="galeri" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto reveal">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest">GALERI MTS RIYADHUL MUSTHOFA</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Momen di Madrasah</h2>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="reveal aspect-square rounded-2xl overflow-hidden border border-line hover:scale-[1.03] transition">
+          <img src="img/TAHFIDZ.jpeg" alt="Kegiatan tahfidz siswa" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="reveal aspect-square rounded-2xl overflow-hidden border border-line hover:scale-[1.03] transition">
+          <img src="img/RAPAT PENGAWAS.jpeg" alt="Kegiatan olahraga siswa" class="w-full h-full object-cover"
+            loading="lazy" />
+        </div>
+        <div class="reveal aspect-square rounded-2xl overflow-hidden border border-line hover:scale-[1.03] transition">
+          <img src="img/PRAMUKA.jpeg" alt="Kegiatan wisuda dan pembelajaran" class="w-full h-full object-cover"
+            loading="lazy" />
+        </div>
+        <div class="reveal aspect-square rounded-2xl overflow-hidden border border-line hover:scale-[1.03] transition">
+          <img src="img/UPACARA.jpeg" alt="Kegiatan hadroh dan seni" class="w-full h-full object-cover"
+            loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PPDB -->
+  <section id="ppdb" class="px-4 pb-16 md:pb-24">
+    <div
+      class="max-w-6xl mx-auto reveal rounded-3xl text-white p-8 md:p-14 text-center relative overflow-hidden bg-cover bg-center"
+      style="background-image: url('img/PPDB.jpeg');">
+
+      <!-- Overlay hijau supaya teks terbaca -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#064e43]/40 to-[#0f766e]/30"></div>
+
+      <!-- Konten harus relative agar berada di atas overlay -->
+      <div class="relative">
+        <p class="text-[#f0c040] font-semibold text-sm uppercase tracking-widest">PPDB Tahun Ajaran 2027/2028</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-3">Penerimaan Peserta Didik Baru Telah Dibuka</h2>
+        <p class="text-white/80 max-w-xl mx-auto mt-4">Mari bergabung bersama keluarga besar MTs Riyadhul Musthofa.
+          Kuota
+          terbatas, daftarkan putra-putri Anda sekarang.</p>
+        <a href="https://forms.gle/M7iAnbitTefXeJKf8" target="_blank" rel="noopener noreferrer"
+          class="inline-block mt-8 bg-[#f0c040] text-[#2a2000] font-semibold px-9 py-3.5 rounded-full shadow-lg hover:scale-105 transition">Daftar
+          Online Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="kontak" class="bg-[#06362f] text-white/80">
+    <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-3 gap-10">
+      <div>
+        <h3 class="font-serif text-xl font-bold text-white">MTs Riyadhul Musthofa</h3>
+        <p class="text-sm mt-3">Madrasah yang berkomitmen mencetak generasi unggul, berakhlak mulia, dan berprestasi.
+        </p>
+      </div>
+      <div class="text-sm space-y-3">
+        <h4 class="font-semibold text-[#f0c040] uppercase tracking-wider text-xs">Kontak</h4>
+        <p>Kp. Pasir Panjang RT 003/RW 007 Desa Sukaraharja Kec. Cibeber Kab. Cianjur 43262</p>
+        <p>✉️ mtsriyadhulmusthofa2021@gmail.com</p>
+        <p>📞 0813-1892-5970 (WhatsApp)</p>
+      </div>
+      <div class="text-sm">
+        <h4 class="font-semibold text-[#f0c040] uppercase tracking-wider text-xs">Media Sosial</h4>
+        <div class="flex gap-3 mt-4">
+          <a href="https://www.facebook.com/profile.php?id=61562309087879"
+            class="px-4 py-2 rounded-full border border-white/30 hover:bg-white hover:text-[#06362f] transition">Facebook</a>
+          <a href="https://www.instagram.com/mts_riyadhulmusthofa"
+            class="px-4 py-2 rounded-full border border-white/30 hover:bg-white hover:text-[#06362f] transition">Instagram</a>
+          <a href="http://tiktok.com/@mts_riyadhulmusthofa"
+            class="px-4 py-2 rounded-full border border-white/30 hover:bg-white hover:text-[#06362f] transition">Tiktok</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center text-xs py-5">Copyright © 2026 MTs Riyadhul Musthofa. Hak cipta
+      dilindungi.</div>
+  </footer>
+
+  <script>
+    const mb = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
+    mb.addEventListener('click', () => mm.classList.toggle('hidden'));
+    mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden')));
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target) } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+
+</html>
